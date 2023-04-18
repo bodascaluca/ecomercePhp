@@ -1,0 +1,70 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <title>Registrazione</title>
+</head>
+<body>
+    <nav>
+
+    </nav>
+    <h1>Registrazione</h1>
+
+    <form action="../controller/registratiController.php" method="POST" >
+        <div id="nome">
+            <label id="nomeLabel" for="fname">Nome:</label><br>
+            <input type="text" id="name" onkeyup=" textValidate(this); controlla()" name="nome" >
+            <span id="name_check"></span>
+        </div>
+
+        <div>
+            <label for="lname">Cognome:</label><br>
+            <input type="text" id="cognome" onkeyup="textValidate(this); controlla()" name="cognome" >
+            <span id="cognome_check"></span>
+        </div>
+
+        <div>
+            <label for="fname">Username:</label><br>
+            <input type="text" id="username" name="username"  onkeyup=" textValidate(this); controlla()" >
+            <span id="username_check"></span>
+        </div>
+
+        <div>
+            <label for="lname">Email:</label><br>
+            <input type="email" id="email" onkeyup="emailValidate(this); controlla()" name="email" value="">
+            <span id="email_check"></span>
+        </div>
+
+        <div class="spazio">
+            <label for="lname">Password:</label><br>
+            <input type="text" id="pass" name="password"  onkeyup="textValidate(this); controlla()"> 
+            <span id="pass_check"></span>
+        </div>
+
+        <div>
+            <label id="indirizzoSped" for="lname">Indirizzo di Spedizione:</label><br>
+            <textarea name="indirizzoDiSpedizione" id="indirizzoDiSpedizione" onkeyup="textValidate(this); controlla()" cols="30" rows="10"></textarea>
+            <span id="indirizzoDiSpedizione_check"></span>
+        </div>
+
+            <img id="myImg" src="" alt="">
+
+            <input type="button" onclick="textValidate('prova')" value="valida">
+     
+            <button type="submit" id="btnRegistrati" name="registrati" class="btn">Submit</button>
+            <input type="button" onclick="mostra()" value="Mostra" >
+            <!-- <input type="submite" id="registratiBtn" name= "registrati"  value="Registrati" > -->
+    </form>
+    
+    <script src="../controller/js/validazione.js"></script>
+
+</body>
+</html>
+
+
+ 
