@@ -1,6 +1,6 @@
 
 <?php 
-    // session_start();
+     session_start();
      require '../model/conndb.php';
 
     if($_SERVER['REQUEST_METHOD']== 'POST'){

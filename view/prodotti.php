@@ -32,11 +32,11 @@
             $stmt2 = $conn->prepare("SELECT p.nome as Prodotto, p.id as id_prodotto, p.prezzo as prezzo, p.immagine as immagine, c.nome as categoria
                                     FROM ecommercedb5.prodotti p, ecommercedb5.categorie c
                                     where p.id_categoria = c.id ");
-            $stmt2->execute();
+            $stmt2->execute(); 
             $result2 = $stmt2->get_result();
-            $conn->close();
-            if($result2->num_rows > 0){
-                while ($row = $result2 -> fetch_assoc()){
+            $conn->close();//Chiudiamo la conessione
+            if($result2->num_rows > 0){//Se ha restituito almeno una riga fai questo
+                while ($row = $result2 -> fetch_assoc()){//Cicliamo le righe che abbiamo
                     echo "<tr>";
                     echo "<td>".$row["Prodotto"]."</td>";
                     echo "<td> <b>".$row["categoria"]." </b> </td>";
@@ -44,7 +44,17 @@
                     echo " <td> <img src=\"../img/".$row["immagine"]."\" class=\"imgw\"></td> ";
                     ?>
                     <td>
-                   
+                        <!-- ad_ product mandiamo id prodotto e quantità -->
+                        <form action="../controller/add_product.php" method="POST">
+                            <!-- HIDEN Questo imput l'utnte non lo vede, nella login si vede -->
+                            <input name="id_prodotto" hidden type="<?php echo $row["id_prodotto"]; ?>">  
+                            <select name="qty" class="quantitaStyle">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <button type="submite" class="btn btn-primary" name="add_to_cart">Aggiungi</button>
+                        </form>
                     </td>
     
                     <?php 
