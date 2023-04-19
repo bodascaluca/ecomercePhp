@@ -24,7 +24,7 @@
                 echo "Ciao: ".$row["username"];
 
                 $_SESSION['username']=$row["username"];
-                $_SESSION['id_utente']=$row["ID"];
+                $_SESSION['id_utente']=$row["id"];
                 $_SESSION['spedizione'] = $row["indirizzoSpedizione"];
                 header("Location: ../view/index.php"); 
                 die();

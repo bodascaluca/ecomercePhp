@@ -7,6 +7,13 @@
     <title>Carello</title>
 </head>
 <body>
+
+<nav>
+<?php 
+        include("./header.html");
+        require '../model/conndb.php';
+    ?>
+</nav>
     cia da carello
 </body>
 </html>

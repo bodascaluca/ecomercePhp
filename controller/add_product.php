@@ -2,36 +2,38 @@
 
 session_start();
 
-if(isset($_session['id_utente']) && isset($_post['add_to_cart']) ){
+if(isset($_SESSION['id_utente']) && isset($_POST['add_to_cart']) ){
 
    {
-    $userID = $_session['id_utente'];
+    $userID = $_SESSION['id_utente'];
     $prodID = $_POST['id_prodotto'];
     $qty = $_POST['qty'];
+
+    echo $userID, $prodID, $qty ;
 
     require '../model/conndb.php';
 
     $stmt = $conn->prepare("SELECT  id, quantita 
-    from ecomercedb5.carello 
-    where id_utente? and id_prodotto=?");
+    from ecommercedb5.carello 
+    where id_utente=? and id_prodotto=?");
 
     $stmt->bind_param("ii", $userID, $prodID);
     $stmt->execute();
-    $result = $stmt->get_result();
+    $resultC = $stmt->get_result();
     $res = $resultC->fetch_assoc();
    if($res){
     $id_carello = $res["id"];
     $current_qty = $res["quantita"];
     $current_qty += $qty;
 
-    $stm2 = $conn ->prepare("UPDATE ecomercedb5.carello
+    $stm2 = $conn ->prepare("UPDATE ecommercedb5.carello
                         SET quantita =? 
                         where id = ? ");
-     $stmt2-> bind_param("ii", $current_qty, $id_carello);                   
+     $stmt2-> bind_param("ii", $prodID, $qty);                   
      $stmt->execute();
         $result = $stmt->get_result();
         $conn->close();
-        header("Location: ../view/carello.php"); 
+        header("Location: ../view/carrello.php"); 
         die();
     
    }else{
@@ -44,7 +46,8 @@ if(isset($_session['id_utente']) && isset($_post['add_to_cart']) ){
     $stmt->execute();
     $result = $stmt->get_result();
     $conn->close();
-    header("Location: ../view/carello.php"); 
+    //echo "inserimento avvenuto con successo!";
+    header("Location: ../view/carrello.php"); 
     die();
 
    }
