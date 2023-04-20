@@ -59,7 +59,7 @@
                         <!-- ad_ product mandiamo id prodotto e quantità -->
                         <form action="../controller/add_product.php" method="POST">
                             <!-- HIDEN Questo imput l'utnte non lo vede, nella login si vede -->
-                            <input name="id_prodotto" hidden type="<?php echo $row["id_prodotto"]; ?>">  
+                            <input name="id_prodotto" hidden value="<?php echo $row["id_prodotto"]; ?>">  
                             <select name="qty" class="quantitaStyle">
                                 <option value="1">1</option>
                                 <option value="2">2</option>

@@ -1,0 +1,19 @@
+
+ul{
+    list-style-type: none;
+}
+
+.imgProdotto{
+    width: 5rem;
+}
+
+/* //HOver è un evneto, quando sei sopra a un evento */
+ul:hover{ 
+    background-color: blueviolet;
+}
+
+.cart{
+    align-items: center;
+    text-align: center;
+    background-color: bisque;
+}
