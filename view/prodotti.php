@@ -14,12 +14,24 @@
 
 <nav>
     <?php 
+        session_start();
         include("./header.html");
         require '../model/conndb.php';
+
+       
     ?>
 </nav>
 
+    
+
     <h1>Prodotti</h1>
+    <div>
+        <?php 
+             if(isset($_SESSION["username"])){
+                echo "Questi sono i prodotti che può aciqstare ".$_SESSION['username'];
+            }
+        ?>
+    </div>
     <div class="container">
         <table class="table table-bordered">
             <tr>
